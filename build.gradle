@@ -33,6 +33,7 @@ ext {
 
 dependencies {
     compile "ch.qos.logback:logback-classic:${logbackVersion}"
+    compile group: 'net.serenity-bdd', name: 'serenity-rest-assured', version: '2.0.81'
 
     testCompile "net.serenity-bdd:serenity-core:${serenityCoreVersion}",
                 "net.serenity-bdd:serenity-junit:${serenityCoreVersion}",
