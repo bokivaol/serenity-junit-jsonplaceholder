@@ -39,9 +39,13 @@ public class GetPostsSteps {
         return postsRespModel;
     }
 
-    @Step("Count all post received in response")
+    @Step("Count all blog post received in response")
     public int countAllPosts(){
         int numberOfPosts = CommonMethods.countJsonObjectsInResponse(response);
         return numberOfPosts;
+    }
+
+    public Response getResponse() {
+        return response;
     }
 }
