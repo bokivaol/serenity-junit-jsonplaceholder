@@ -1,7 +1,6 @@
 package com.jsonplaceholder.tests.steps;
 
 import com.jsonplaceholder.tests.common.CommonMethods;
-import com.jsonplaceholder.tests.models.GetPostsRespModel;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import net.serenitybdd.rest.SerenityRest;
@@ -16,7 +15,7 @@ public class GetPostsByUserIdSteps {
     private Response response;
 
     @Step("Call \"/posts\" for particular user")
-    public void callPostsByUserId(int userId){
+    public void getPostsByUserId(int userId){
         response = SerenityRest
                 .given()
                 .contentType(ContentType.JSON)
@@ -29,15 +28,6 @@ public class GetPostsByUserIdSteps {
                 .ifValidationFails()
                 .extract()
                 .response();
-    }
-
-    @Step("GSON - Serialize GET /posts response")
-    public GetPostsRespModel SerializeGetPostsResponse(){
-        GetPostsRespModel postsRespModel = response
-                .then()
-                .extract()
-                .as(GetPostsRespModel.class);
-        return postsRespModel;
     }
 
     @Step("Count all blog post received in response")

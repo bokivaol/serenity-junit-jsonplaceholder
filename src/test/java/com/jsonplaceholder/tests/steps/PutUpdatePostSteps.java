@@ -13,7 +13,7 @@ import org.apache.http.HttpStatus;
 public class PutUpdatePostSteps {
     private Response response;
 
-    @Step("Call \"/posts\" for particular postId")
+    @Step("Update particular blog post")
     public void updatePostByPostId(int resourcePostId, PutUpdatePostRequestAndResponseModel body){
         response = SerenityRest
                 .given()
@@ -29,7 +29,7 @@ public class PutUpdatePostSteps {
                 .response();
     }
 
-    @Step("GSON - Serialize GET /posts response")
+    @Step("GSON - Serialize PUT /posts response")
     public PutUpdatePostRequestAndResponseModel SerializePutUpdateResponse(){
         PutUpdatePostRequestAndResponseModel putRespModel = response
                 .then()
