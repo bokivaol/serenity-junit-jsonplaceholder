@@ -10,8 +10,8 @@ You can use this project as a quick starting point for your own projects.
 
 Git:
 
-    git clone https://github.com/serenity-bdd/serenity-junit-starter.git
-    cd serenity-junit-starter
+    git clone https://github.com/bokivaol/serenity-junit-jsonplaceholder.git
+    cd serenity-junit-jsonplaceholder
 
 
 Or simply [download a zip](https://github.com/serenity-bdd/serenity-junit-starter/archive/master.zip) file.
