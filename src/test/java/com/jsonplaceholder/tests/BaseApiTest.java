@@ -13,9 +13,10 @@ import org.junit.runner.RunWith;
 
 /**
  * Created by @Boki on Jan, 2020
+ * Class is abstract to tell Junit to ignore this class as a Test(not to run it)
  */
 @RunWith(SerenityRunner.class)
-public class BaseApiTest {
+public abstract class BaseApiTest {
 
     protected EnvironmentVariables environmentVariables;
     protected static boolean initialized = false;

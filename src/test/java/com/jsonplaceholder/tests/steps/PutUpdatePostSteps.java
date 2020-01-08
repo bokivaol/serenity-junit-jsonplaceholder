@@ -14,12 +14,12 @@ public class PutUpdatePostSteps {
     private Response response;
 
     @Step("Update particular blog post")
-    public void updatePostByPostId(int resourcePostId, PutUpdatePostRequestAndResponseModel body){
+    public void callUpdatePostByPostId(int resourcePostId, PutUpdatePostRequestAndResponseModel bodyPayload){
         response = SerenityRest
                 .given()
                 .contentType(ContentType.JSON)
                 .when()
-                .body(body)
+                .body(bodyPayload)
                 .put("/posts" + "/" + resourcePostId)
                 .then()
                 .statusCode(HttpStatus.SC_OK)

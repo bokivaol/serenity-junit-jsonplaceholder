@@ -71,14 +71,14 @@ public class JsonPlaceholderTests extends BaseApiTest {
         String title = "Little";
         String body = "Wing";
 
-        PutUpdatePostRequestAndResponseModel putUpdatePostRequest = new PutUpdatePostRequestAndResponseModel();
-        putUpdatePostRequest.setBody(body);
-        putUpdatePostRequest.setTitle(title);
-        putUpdatePostRequest.setId(bodyPayloadPostId);
-        putUpdatePostRequest.setUserId(userId);
+        PutUpdatePostRequestAndResponseModel putUpdatePostRequestPayload = new PutUpdatePostRequestAndResponseModel();
+        putUpdatePostRequestPayload.setBody(body);
+        putUpdatePostRequestPayload.setTitle(title);
+        putUpdatePostRequestPayload.setId(bodyPayloadPostId);
+        putUpdatePostRequestPayload.setUserId(userId);
 
 //        Run PUT request
-        putUpdatePostSteps.updatePostByPostId(resourcePostId, putUpdatePostRequest);
+        putUpdatePostSteps.callUpdatePostByPostId(resourcePostId, putUpdatePostRequestPayload);
 
 //        Serialized response
         PutUpdatePostRequestAndResponseModel putUpdatePostResponse = putUpdatePostSteps.SerializePutUpdateResponse();
@@ -87,7 +87,7 @@ public class JsonPlaceholderTests extends BaseApiTest {
         softAssertions.assertThat(putUpdatePostSteps.getResponse().getStatusCode()).as("Status code is 200.")
                 .isEqualTo(200);
         softAssertions.assertThat(putUpdatePostResponse.getId()).as("Post id")
-                .isEqualTo(resourcePostId);
+                .isEqualTo(bodyPayloadPostId);
         softAssertions.assertThat(putUpdatePostResponse.getUserId()).as("User id")
                 .isEqualTo(userId);
         softAssertions.assertThat(putUpdatePostResponse.getBody()).as("Body")
