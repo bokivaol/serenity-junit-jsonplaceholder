@@ -1,4 +1,4 @@
-# Serenity JUnit Starter project
+# Serenity, JUnit and Gradle JSONPlaceholder API Test project
 
 
 This is the simplest possible build script setup for Serenity BDD using Java. 
