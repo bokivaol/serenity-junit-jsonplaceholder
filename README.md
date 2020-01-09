@@ -1,10 +1,11 @@
 # Serenity, JUnit and Gradle JSONPlaceholder API Test project
 
-
-This is the simplest possible build script setup for Serenity BDD using Java. 
-
-This is a very minimal sample project using JUnit and Serenity BDD in Java. 
-You can use this project as a quick starting point for your own projects.
+This is JSONPlaceholder API test project.
+For the test automation I used:
+- Serenity BDD 2.0.81
+- Java 11.0.5 LTS
+- JUnit 4.12
+- Gradle 5.3.1
 
 ## Get the code
 
@@ -20,7 +21,7 @@ Or simply [download a zip](https://github.com/bokivaol/serenity-junit-jsonplaceh
 
 Open a command window and run:
 
-    gradlew test 
+    gradlew clean test 
 
 ## Viewing the reports
 
