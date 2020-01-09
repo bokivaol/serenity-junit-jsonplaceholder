@@ -16,20 +16,13 @@ Git:
 
 Or simply [download a zip](https://github.com/bokivaol/serenity-junit-jsonplaceholder/archive/master.zip) file.
 
-## Use Maven
-
-Open a command window and run:
-
-    mvn clean verify
-
-## Use Gradle
+## Use Gradle on Windows
 
 Open a command window and run:
 
     gradlew test 
 
-
 ## Viewing the reports
 
-Both of the commands provided above will produce a Serenity test report in the `target/site/serenity` directory. Open index.html in Chrome and take a look!
+The command provided above will produce a Serenity test report in the `target/site/serenity` directory. Open `index.html` in Chrome and take a look!
 

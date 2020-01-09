@@ -61,7 +61,7 @@ public class JsonPlaceholderTests extends BaseApiTest {
     }
 
     @Test
-    public void T3_put_idInPostsBodyPayloadIsStringNotInt_blogPostIsSuccessfullyUpdated() {
+    public void T3_put_idInPostsBodyPayloadIsNumberAsStringNotAsInt_blogPostIsSuccessfullyUpdated() {
         SoftAssertions softAssertions = new SoftAssertions();
 
 //        Values of the payloadPostId and resourcePostId must be the same, but the data type is different.
