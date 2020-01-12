@@ -1,6 +1,7 @@
 package com.jsonplaceholder.tests.steps;
 
 import com.jsonplaceholder.tests.models.PutUpdatePostRequestAndResponseModel;
+import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import net.serenitybdd.rest.SerenityRest;
@@ -23,6 +24,22 @@ public class PutUpdatePostSteps {
                 .put("/posts" + "/" + resourcePostId)
                 .then()
                 .statusCode(HttpStatus.SC_OK)
+                .log()
+                .ifValidationFails()
+                .extract()
+                .response();
+    }
+
+    @Step("Update data under invalid resource Id")
+    public void callUpdateNonexistentResource(String resourcePostId, PutUpdatePostRequestAndResponseModel bodyPayload){
+        response = SerenityRest
+                .given()
+                .contentType(ContentType.JSON)
+                .when()
+                .body(bodyPayload)
+                .put("/posts" + "/" + resourcePostId)
+                .then()
+//                .statusCode(HttpStatus.SC_NOT_FOUND)
                 .log()
                 .ifValidationFails()
                 .extract()

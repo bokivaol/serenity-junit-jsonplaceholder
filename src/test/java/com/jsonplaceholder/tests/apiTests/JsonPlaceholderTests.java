@@ -118,21 +118,48 @@ public class JsonPlaceholderTests extends BaseApiTest {
         softAssertions.assertAll();
     }
 
-    @Test
-    public void T5_delete_deleteAtOnceAllBlogPostsUnderPostsCollectionResource_receivedAnErrorAndNothingIsDeleted() {
+//    @Test
+//    public void T5_delete_deleteAtOnceAllBlogPostsUnderPostsCollectionResource_receivedAnErrorAndNothingIsDeleted() {
+//
+//        SoftAssertions softAssertions = new SoftAssertions();
+//
+////        Run DELETE request
+//        deleteAllPostsAtOnceSteps.deleteAllPostsRequest();
+//
+//        Response response = deleteAllPostsAtOnceSteps.getResponse();
+//
+////        Assertions starting point
+//        softAssertions.assertThat(response.getStatusCode()).as("Status code is 404.")
+//                .isEqualTo(404);
+//        softAssertions.assertThat(response.getBody().asString()).as("Body")
+//                .isEqualTo("{}");
+//
+//        softAssertions.assertAll();
+//    }
 
+    @Test
+    public void T5_put_updateDataUnderInvalidResourceId_userGetAnErrorMsgThatResourceIsNotFound() {
         SoftAssertions softAssertions = new SoftAssertions();
 
-//        Run DELETE request
-        deleteAllPostsAtOnceSteps.deleteAllPostsRequest();
+//        Resource is letter.
+        String bodyPayloadPostId = "1";
+        String stringAsResourcePostId = "a";
+        int userId = 1;
+        String title = "Little";
+        String body = "Wing";
 
-        Response response = deleteAllPostsAtOnceSteps.getResponse();
+        PutUpdatePostRequestAndResponseModel putUpdatePostRequestPayload = new PutUpdatePostRequestAndResponseModel();
+        putUpdatePostRequestPayload.setBody(body);
+        putUpdatePostRequestPayload.setTitle(title);
+        putUpdatePostRequestPayload.setId(bodyPayloadPostId);
+        putUpdatePostRequestPayload.setUserId(userId);
+
+//        Run PUT request
+        putUpdatePostSteps.callUpdateNonexistentResource(stringAsResourcePostId, putUpdatePostRequestPayload);
 
 //        Assertions starting point
-        softAssertions.assertThat(response.getStatusCode()).as("Status code is 404.")
+        softAssertions.assertThat(putUpdatePostSteps.getResponse().getStatusCode()).as("Status code is 404.")
                 .isEqualTo(404);
-        softAssertions.assertThat(response.getBody().asString()).as("Body")
-                .isEqualTo("{}");
 
         softAssertions.assertAll();
     }
